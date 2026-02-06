@@ -1,0 +1,9 @@
+train:
+  _target_: src.data.toy_helix_on_sphere.helix_on_sphere_product.ProductSphereHelixDataset
+  K: 1
+  n_samples: 100000
+  helix_a: 5.0
+  helix_b: 0.5
+  signal_sigma: 0.02
+
+val: null

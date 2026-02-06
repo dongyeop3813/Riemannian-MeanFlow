@@ -1,0 +1,9 @@
+train:
+  _target_: src.data.amino.amino_dataset.RNA
+  root: data/rna
+  split: "train"
+
+val:
+  _target_: src.data.amino.amino_dataset.RNA
+  root: data/rna
+  split: "test"

@@ -1,0 +1,27 @@
+# @package _global_
+
+defaults:
+  - /task/earth
+  - override /time_sampler: uniform_three
+  - _self_
+
+trainer:
+  _target_: src.experiments.SplitFlowTrainer
+
+loss_type: "split_flow"
+
+loss_p1: 0.0
+loss_p2: 0.0
+loss_weight: 1.0
+v_loss_down_scale: false
+split_loss_down_scale: true
+split_loss_type: "x_loss"
+
+tangent_clip: null
+
+time_sampler:
+  mid_point: true
+  min_length: 0.01
+
+wandb:
+  tags: ["SplitFlow", "${data.train.dataset_file}"]

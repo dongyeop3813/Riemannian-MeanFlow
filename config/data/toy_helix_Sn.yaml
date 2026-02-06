@@ -1,0 +1,9 @@
+train:
+  _target_: src.data.toy_helix_on_sphere.helix_on_Sn.SnEmbeddedHelixDataset
+  n: 2
+  n_samples: 100000
+  helix_a: 5.0
+  helix_b: 0.5
+  signal_sigma: 0.05
+
+val: null

@@ -1,0 +1,8 @@
+schedule:
+  decay_steps: 1000
+  alpha: 0.00008
+
+lr: 1e-3
+weight_decay: 0.00
+
+grad_clip: 1.0

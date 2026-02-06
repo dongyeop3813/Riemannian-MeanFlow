@@ -1,0 +1,20 @@
+# @package _global_
+
+defaults:
+  - /task/promoter_dna
+  - override /time_sampler: lognorm_interval
+  - _self_
+
+time_sampler:
+  interval_sample: "unordered"
+
+trainer:
+  _target_: src.experiments.LagrangeTrainer
+
+loss_type: "lagrange_pushforward"
+
+loss_p: 0.5
+tangent_clip: 100.0
+
+wandb:
+  tags: ["Lagrange", "promoter"]

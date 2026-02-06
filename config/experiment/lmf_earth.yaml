@@ -1,0 +1,21 @@
+# @package _global_
+
+defaults:
+  - /task/earth
+  - override /time_sampler: uniform_interval
+  - _self_
+
+trainer:
+  _target_: src.experiments.LagrangeTrainer
+
+loss_type: "lagrange_pushforward"
+
+time_sampler:
+  interval_sample: "unordered"
+  boundary_ratio: 0.25
+
+loss_p: 0.0
+tangent_clip: null
+
+wandb:
+  tags: ["Lagrange", "${data.train.dataset_file}"]

@@ -1,0 +1,28 @@
+# @package _global_
+
+defaults:
+  - override /data: dna_promoter
+  - override /checkpoint: every_n_epochs
+  - override /model: promoter_model
+  - override /optim: cosine_lr
+  - _self_
+
+manifold:
+  _target_: src.manifold.ProductManifold
+  _args_:
+    - _target_: src.manifold.Sphere
+      pos_orthant_only: true
+
+x_shape: [1024, 4]
+
+seed: 0
+
+batch_size: 128
+num_epochs: 200
+
+wandb:
+  project: "DNAPromoter"
+
+eval:
+  sample_every: 10
+  eval_sei: true

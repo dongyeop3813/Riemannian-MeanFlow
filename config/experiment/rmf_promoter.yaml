@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+  - /task/promoter_dna
+  - override /time_sampler: lognorm_interval
+  - _self_
+
+trainer:
+  _target_: src.experiments.MeanFlowTrainer
+
+loss_type: "meanflow"
+
+loss_p: 0.5
+tangent_clip: 100.0
+loss_down_scale: true
+t_clip: 0.1
+
+wandb:
+  tags: ["RiemannMF", "promoter"]

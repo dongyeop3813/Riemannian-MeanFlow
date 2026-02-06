@@ -1,0 +1,8 @@
+train:
+  _target_: src.data.ToyDiscreteDataset
+  dataset_size: 10000
+  seq_length: 5
+  num_tokens: 3
+  probs: [0.5, 0.3, 0.2]
+
+val: null

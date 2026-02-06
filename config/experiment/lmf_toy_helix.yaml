@@ -1,0 +1,20 @@
+# @package _global_
+
+defaults:
+  - /task: toy_helix
+  - override /time_sampler: uniform_interval
+  - _self_
+
+trainer:
+  _target_: src.experiments.LagrangeTrainer
+
+loss_type: "lagrange_pullback"
+
+time_sampler:
+  interval_sample: "unordered"
+
+loss_p: 0.0
+tangent_clip: null
+
+wandb:
+  tags: ["Lagrange", "toy_helix"]

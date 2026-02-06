@@ -1,0 +1,20 @@
+# @package _global_
+
+defaults:
+  - /task/amino_general
+  - override /time_sampler: uniform_interval
+  - _self_
+
+trainer:
+  _target_: src.experiments.LagrangeTrainer
+
+tiem_sampler:
+  interval_sample: "unordered"
+
+loss_type: "lagrange_pushforward"
+
+loss_p: 0.0
+tangent_clip: 100.0
+
+wandb:
+  tags: ["Lagrange", "amino_general"]

@@ -1,0 +1,6 @@
+parametrization: "average_velocity"
+
+clip_mode: true
+
+defaults:
+  - net: mlp

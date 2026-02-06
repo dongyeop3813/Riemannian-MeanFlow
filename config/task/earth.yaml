@@ -1,0 +1,35 @@
+# @package _global_
+
+defaults:
+  - override /data: volcano
+  - override /model: mlp_avg_vel
+  - override /optim: adamw
+  - _self_
+
+model:
+  net:
+    hidden_dim: 2048
+    num_layers: 12
+  clip_mode: false
+  parametrization: "average_velocity"
+
+optim:
+  lr: 1e-4
+  weight_decay: 0.01
+  grad_clip: 1000.0
+
+manifold:
+  _target_: src.manifold.NSphere
+
+x_shape: [3]
+
+batch_size: 8192
+num_epochs: 500
+
+seed: 42
+
+eval:
+  interval: 10
+
+checkpoint:
+  save_interval: 100

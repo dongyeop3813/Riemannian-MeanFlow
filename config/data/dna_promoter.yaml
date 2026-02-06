@@ -1,0 +1,16 @@
+train:
+  _target_: src.data.PromoterDataset
+  seqlength: 1024
+  n_tsses: 100000
+  split: "train"
+  rand_offset: 10
+  sep_x_y: true
+
+val:
+  _target_: src.data.PromoterDataset
+  seqlength: 1024
+  n_tsses: 100000
+  split: "valid"
+  rand_offset: 0
+  sep_x_y: true
+

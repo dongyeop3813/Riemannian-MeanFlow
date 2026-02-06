@@ -1,0 +1,4 @@
+parametrization: "flow_map"
+
+defaults:
+  - net: promoter_cnn

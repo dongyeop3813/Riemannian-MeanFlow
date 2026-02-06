@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+  - /task: toy_helix
+  - override /time_sampler: uniform_interval
+  - _self_
+
+trainer:
+  _target_: src.experiments.MeanFlowTrainer
+
+loss_type: "meanflow"
+
+loss_p: 0.0
+
+tangent_clip: null
+
+wandb:
+  tags: ["RiemannMF", "toy_helix"]

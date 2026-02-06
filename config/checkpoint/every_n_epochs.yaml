@@ -1,0 +1,3 @@
+mode: every_n_epochs
+save_interval: 10
+max_to_keep: 10

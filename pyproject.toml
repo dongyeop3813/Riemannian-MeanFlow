@@ -1,0 +1,55 @@
+[project]
+name = "rmf"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "biopython>=1.85",
+    "cooler>=0.10.4",
+    "cooltools>=0.7.1",
+    "cython>=3.1.3",
+    "diffrax>=0.7.0",
+    "dm-tree>=0.1.9",
+    "einops>=0.8.1",
+    "etils>=1.13.0",
+    "flax>=0.10.7",
+    "geopandas>=1.1.2",
+    "gputil>=1.4.0",
+    "hydra-colorlog>=1.2.0",
+    "hydra-core>=1.3.2",
+    "hydra-optuna-sweeper>=1.2.0",
+    "ipdb>=0.13.13",
+    "ipywidgets>=8.1.7",
+    "jax[cuda12]>=0.6.2",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.5",
+    "numpy>=2.2.6",
+    "pandas>=2.3.1",
+    "pot>=0.9.5",
+    "pre-commit>=4.3.0",
+    "py3dmol>=2.5.2",
+    "pybigwig>=0.3.24",
+    "pyfaidx>=0.9.0.2",
+    "pyranges>=0.1.4",
+    "pytabix>=0.1",
+    "pytest>=8.4.2",
+    "rdkit>=2025.3.5",
+    "rich>=14.1.0",
+    "rootutils>=1.0.7",
+    "scikit-learn>=1.7.1",
+    "seaborn>=0.13.2",
+    "selene-sdk>=0.6.0",
+    "torch<=2.3.1",
+    "wandb>=0.21.1",
+]
+
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]

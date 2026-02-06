@@ -1,0 +1,2 @@
+mode: best_val_loss
+max_to_keep: 10

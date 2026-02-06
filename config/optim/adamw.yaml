@@ -1,0 +1,4 @@
+lr: 1e-3
+weight_decay: 0.00
+
+grad_clip: 1.0

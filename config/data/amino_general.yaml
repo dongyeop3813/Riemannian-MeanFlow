@@ -1,0 +1,12 @@
+train:
+  _target_: src.data.amino.amino_dataset.Top500
+  root: data/top500
+  amino: General
+  split: "train"
+  expand_factor: 1
+
+val:
+  _target_: src.data.amino.amino_dataset.Top500
+  root: data/top500
+  amino: General
+  split: "test"

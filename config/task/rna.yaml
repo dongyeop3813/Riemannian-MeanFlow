@@ -1,0 +1,36 @@
+# @package _global_
+
+defaults:
+  - override /data: rna
+  - override /model: mlp_avg_vel
+  - override /optim: adamw
+  - _self_
+
+model:
+  net:
+    hidden_dim: 512
+    num_layers: 6
+    x_dim: 7
+  clip_mode: false
+  parametrization: "average_velocity"
+
+optim:
+  lr: 1e-4
+  weight_decay: 0.01
+  grad_clip: 1000.0
+
+manifold:
+  _target_: src.manifold.Torus
+
+x_shape: [7]
+
+batch_size: 8192
+num_epochs: 1450
+
+seed: 42
+
+eval:
+  interval: 100
+
+checkpoint:
+  save_interval: 200

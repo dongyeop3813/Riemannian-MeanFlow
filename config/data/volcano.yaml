@@ -1,0 +1,11 @@
+train:
+  _target_: src.data.earth.earth_dataset.EarthDataset
+  data_dir: "data/earth_data"
+  dataset_file: "volcano"
+  split: "train"
+
+val:
+  _target_: src.data.earth.earth_dataset.EarthDataset
+  data_dir: "data/earth_data"
+  dataset_file: "volcano"
+  split: "test"

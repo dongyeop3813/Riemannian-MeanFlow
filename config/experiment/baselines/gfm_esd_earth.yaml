@@ -1,0 +1,12 @@
+# @package _global_
+
+defaults:
+  - /task/earth
+  - override /time_sampler: uniform_interval
+  - _self_
+
+trainer:
+  _target_: src.experiments.GFM_ESD_Trainer
+
+wandb:
+  tags: ["GFM_ESD", "${data.train.dataset_file}"]

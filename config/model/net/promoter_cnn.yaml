@@ -1,0 +1,13 @@
+name: "1D_CNN"
+
+mode: "sfm"
+
+embed_dim: 256
+
+time_dependent_weights: null
+
+time_step: 0.01
+
+time_emb_type: "fourier"
+
+scale: 0.02

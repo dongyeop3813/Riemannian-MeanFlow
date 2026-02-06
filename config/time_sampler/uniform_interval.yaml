@@ -1,0 +1,6 @@
+type: "uniform"
+max_t: 1.0
+
+interval_sample: "ordered"
+
+boundary_ratio: 0.75

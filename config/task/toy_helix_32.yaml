@@ -1,0 +1,35 @@
+# @package _global_
+
+defaults:
+  - override /data: toy_helix_Sn
+  - override /model: mlp_avg_vel
+  - override /optim: adamw
+  - _self_
+
+data:
+  train:
+    n: 31
+
+model:
+  net:
+    hidden_dim: 256
+    x_dim: 32
+  clip_mode: false
+
+manifold:
+  _target_: src.manifold.NSphere
+
+x_shape: [32]
+
+seed: 42
+tangent_clip: null
+
+batch_size: 300
+num_epochs: 500
+
+eval:
+  num_samples: 4000
+  interval: 10
+
+checkpoint:
+  save_interval: 100

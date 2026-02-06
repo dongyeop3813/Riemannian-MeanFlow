@@ -1,0 +1,5 @@
+parametrization: "average_velocity"
+clip_mode: True
+
+defaults:
+  - net: promoter_cnn

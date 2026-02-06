@@ -1,0 +1,4 @@
+type: "lognorm"
+mu: -0.4
+sigma: 1.0
+max_t: 1.0

@@ -1,0 +1,6 @@
+parametrization: "cond_velocity"
+
+defaults:
+  - net: promoter_cnn
+
+projection_mode: "promoter"

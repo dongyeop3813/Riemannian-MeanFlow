@@ -1,0 +1,36 @@
+# @package _global_
+
+defaults:
+  - override /data: amino_general
+  - override /model: mlp_avg_vel
+  - override /optim: adamw
+  - _self_
+
+model:
+  net:
+    hidden_dim: 512
+    num_layers: 4
+    x_dim: 2
+  clip_mode: false
+  parametrization: "average_velocity"
+
+optim:
+  lr: 1e-4
+  weight_decay: 0.001
+  grad_clip: 1000.0
+
+manifold:
+  _target_: src.manifold.Torus
+
+x_shape: [2]
+
+batch_size: 4096
+num_epochs: 10000
+
+seed: 42
+
+eval:
+  interval: 100
+
+checkpoint:
+  save_interval: 200

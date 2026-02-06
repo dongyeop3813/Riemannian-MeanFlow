@@ -1,0 +1,41 @@
+# @package _global_
+
+defaults:
+  - override /data: toy
+  - override /time_sampler: uniform_interval
+  - override /model: mlp_avg_vel
+  - override /optim: adamw
+  - _self_
+
+data:
+  train:
+    transform_to_sphere: true
+
+trainer:
+  _target_: src.experiments.MeanFlowTrainer
+
+manifold:
+  _target_: src.manifold.Sphere
+
+x_shape: [3]
+
+loss_type: "meanflow"
+
+seed: 42
+
+loss_p: 0.0
+
+tangent_clip: null
+
+batch_size: 300
+num_epochs: 100
+
+eval:
+  num_samples: 10000
+  interval: 100
+
+checkpoint:
+  save_interval: 500
+
+wandb:
+  tags: ["RiemannMF", "toy"]

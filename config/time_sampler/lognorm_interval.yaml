@@ -1,0 +1,7 @@
+type: "lognorm"
+mu: -0.4
+sigma: 1.0
+max_t: 1.0
+
+interval_sample: "ordered"
+boundary_ratio: 0.75

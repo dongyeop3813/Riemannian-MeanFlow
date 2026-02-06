@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+  - /task: toy_helix
+  - override /time_sampler: uniform_interval
+  - _self_
+
+trainer:
+  _target_: src.experiments.GFM_LSD_Trainer
+
+time_sampler:
+  interval_sample: "unordered"
+
+wandb:
+  tags: ["GFM_LSD", "toy_helix"]

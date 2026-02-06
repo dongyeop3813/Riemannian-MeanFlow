@@ -1,0 +1,16 @@
+# @package _global_
+
+defaults:
+  - /task/promoter_dna
+  - override /time_sampler: lognorm_interval
+  - _self_
+
+trainer:
+  _target_: src.experiments.GFM_ESD_Trainer
+
+eval:
+  sample_every: 10
+  eval_sei: true
+
+wandb:
+  tags: ["GFM_ESD", "promoter"]

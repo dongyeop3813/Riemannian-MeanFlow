@@ -1,0 +1,27 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - data: toy
+  - model: mlp
+  - time_sampler: uniform_boundary
+  - checkpoint: every_n_epochs
+  - optim: adamw
+  - experiment: rmf_toy
+
+resume: false
+ckpt_path: null
+
+wandb:
+  project: "ManifoldFlow"
+
+debug: false
+
+hydra:
+  run:
+    dir: logs/${now:%Y-%m-%d}_${now:%H-%M-%S}
+  sweep:
+    dir: logs/${now:%Y-%m-%d}_${now:%H-%M-%S}
+    subdir: ${hydra.job.num}
+  job:
+    name: ${oc.env:HYDRA_JOB_NAME,job_unknown}

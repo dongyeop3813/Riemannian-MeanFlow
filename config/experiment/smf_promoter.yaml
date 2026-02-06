@@ -1,0 +1,33 @@
+# @package _global_
+
+defaults:
+  - /task/promoter_dna
+  - override /time_sampler: lognorm_three
+  - _self_
+
+trainer:
+  _target_: src.experiments.SplitFlowTrainer
+
+loss_type: "split_flow"
+
+loss_p1: 0.0
+loss_p2: 0.0
+loss_weight: 5.0
+v_loss_down_scale: true
+split_loss_down_scale: true
+split_loss_type: "x_loss"
+
+time_sampler:
+  mid_point: true
+  min_length: 0.01
+  max_t: 0.99
+
+ema: true
+ema_decay: 0.9999
+batch_size: 64
+
+eval:
+  eval_sei: true
+
+wandb:
+  tags: ["SplitFlow", "promoter"]

@@ -1,0 +1,41 @@
+# @package _global_
+
+defaults:
+  - override /data: toy
+  - override /model: mlp_avg_vel
+  - override /time_sampler: uniform_interval
+  - override /optim: adamw
+  - override /checkpoint: every_n_epochs
+  - _self_
+
+data:
+  train:
+    transform_to_sphere: true
+
+trainer:
+  _target_: src.experiments.LagrangeTrainer
+
+manifold:
+  _target_: src.manifold.Sphere
+
+loss_type: "lagrange_pushforward"
+
+x_shape: [3]
+
+seed: 0
+
+batch_size: 300
+num_epochs: 100
+
+loss_p: 0.0
+tangent_clip: null
+
+eval:
+  num_samples: 10000
+  interval: 5
+
+checkpoint:
+  save_interval: 20
+
+wandb:
+  tags: ["Lagrange", "toy"]
