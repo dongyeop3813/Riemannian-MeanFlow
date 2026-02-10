@@ -1,14 +1,14 @@
-# Riemannian Mean Flow (RMF)
+# Riemannian Mean Flow ⚡
 
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-2602.07744-b31b1b.svg)](https://arxiv.org/abs/2602.07744)
 
 <p align="center">
   <img src="assets/method.png" alt="Method overview" width="600"/>
 </p>
 
-Official JAX implementation of **Riemannian Mean Flow** for flow-map learning on Riemannian manifolds. This repository reproduces the **toy**, **Earth**, and **DNA** experiments from the paper *Riemannian Mean Flow*. Protein experiments are provided separately at [https://xxx](https://xxx).
+Official JAX implementation of **Riemannian Mean Flow (RMF)** for flow-map learning on Riemannian manifolds. This repository reproduces the **toy**, **Earth**, and **DNA** experiments from the paper *Riemannian Mean Flow*. Protein experiments are provided separately at [https://https://github.com/dongyeop3813/Protein-RMF](https://github.com/dongyeop3813/Protein-RMF).
 
-## Implemented experiments
+## 🧪 Implemented experiments
 
 | Experiment   | Manifold              | Data                                                                 | Description                          |
 | ------------ | --------------------- | -------------------------------------------------------------------- | ------------------------------------ |
@@ -16,7 +16,7 @@ Official JAX implementation of **Riemannian Mean Flow** for flow-map learning on
 | **Earth**    | Sphere (S²)           | Geographic events (earthquake, volcano, fire, flood) as points on S² | Density estimation on the Earth      |
 | **DNA**      | Product of simplices  | DNA promoter sequences (1024×4)                                     | Conditional generation on sequences  |
 
-## Installation
+## 📦 Installation
 
 Requires Python ≥3.10. The project uses **uv** for environment and dependency management:
 
@@ -28,21 +28,21 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv sync
 ```
 
-## Data preparation
+## 📁 Data preparation
 
 Experiments use the following data; prepare each as below before running.
 
-### Earth
+### 🌍 Earth
 
 Place geographic event data (CSV with lat/lon) under `data/earth_data/`. For download and setup, follow the instructions in [facebookresearch/riemannian-fm](https://github.com/facebookresearch/riemannian-fm).
 
-### DNA promoter
+### 🧬 DNA promoter
 
 Download the dataset from [Zenodo (7943307)](https://zenodo.org/records/7943307) and place it in `data/dna_promoter`. The dataset is from **Stark et al.** — *Dirichlet Flow Matching with Applications to DNA Sequence Design* (2024).
 
-## Quick start
+## 🚀 Quick start
 
-### 1. Toy helix (Sⁿ)
+### 1. 🌀 Toy helix (Sⁿ)
 
 Synthetic helix on the sphere; supports Eulerian (RMF), Lagrangian (LMF), and Semigroup (SMF) formulations:
 
@@ -52,7 +52,7 @@ uv run main.py experiment=lmf_toy_helix   # Lagrangian LMF
 uv run main.py experiment=smf_toy_helix   # Semigroup SMF
 ```
 
-### 2. Earth
+### 2. 🌍 Earth
 
 Density estimation on the sphere for geographic event data. Place CSV data under `data/earth_data/` and select the dataset:
 
@@ -63,7 +63,7 @@ uv run main.py experiment=rmf_earth data=fire
 uv run main.py experiment=rmf_earth data=flood
 ```
 
-### 3. DNA promoter
+### 3. 🧬 DNA promoter
 
 Conditional flow on DNA promoter sequences (length 1024, 4 nucleotides). SEI evaluation is enabled when `eval.eval_sei: true` in the task config.
 
@@ -71,7 +71,7 @@ Conditional flow on DNA promoter sequences (length 1024, 4 nucleotides). SEI eva
 uv run main.py experiment=rmf_promoter
 ```
 
-## Project structure
+## 📂 Project structure
 
 ```
 config/
@@ -94,15 +94,18 @@ src/
 
 Configuration is managed by **Hydra**; override options from the CLI, e.g. `uv run main.py experiment=rmf_toy_helix batch_size=512`.
 
-## Citation
+## 📄 Citation
 
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{riemannian_mean_flow,
-  title   = {Riemannian Mean Flow},
-  author  = {},
-  journal = {},
-  year    = {},
+@misc{woo2026riemannianmeanflow,
+      title={Riemannian MeanFlow}, 
+      author={Dongyeop Woo and Marta Skreta and Seonghyun Park and Sungsoo Ahn and Kirill Neklyudov},
+      year={2026},
+      eprint={2602.07744},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2602.07744}, 
 }
 ```
