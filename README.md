@@ -40,6 +40,32 @@ Place geographic event data (CSV with lat/lon) under `data/earth_data/`. For dow
 
 Download the dataset from [Zenodo (7943307)](https://zenodo.org/records/7943307) and place it in `data/dna_promoter`. The dataset is from **Stark et al.** — *Dirichlet Flow Matching with Applications to DNA Sequence Design* (2024).
 
+SEI-based evaluation and reward guidance additionally require the JAX/Flax SEI checkpoint. Download `promoter_sei.tar.gz` from the [Zenodo model-weight record](https://zenodo.org/records/21125130) and extract it under `data/`:
+
+```bash
+curl -L -o promoter_sei.tar.gz \
+  https://zenodo.org/api/records/21125130/files/promoter_sei.tar.gz/content
+
+echo "07f42fab8a7db7ea523f00bb6188f9ab  promoter_sei.tar.gz" | md5sum -c -
+
+mkdir -p data
+tar -xzf promoter_sei.tar.gz -C data
+```
+
+This should create the following layout:
+
+```text
+data/promoter_sei/
+├── target.sei.names
+└── best_promoter_sei/
+    ├── _CHECKPOINT_METADATA
+    ├── _METADATA
+    ├── manifest.ocdbt
+    └── ocdbt.process_0/
+```
+
+The SEI loader expects `data/promoter_sei/best_promoter_sei` and `data/promoter_sei/target.sei.names`. If you do not use SEI metrics, disable them with `eval.eval_sei=false`.
+
 ## 🚀 Quick start
 
 ### 1. 🌀 Toy helix (Sⁿ)
